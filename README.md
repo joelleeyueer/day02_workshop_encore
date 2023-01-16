@@ -8,3 +8,11 @@
 6. git branch -M main
 7. git remote add origin <git url>
 8. git push -u origin main
+
+
+# Java Compile and Run Application
+1. java --version
+2. javac --version
+3. cd into .java file
+4. javac -d . *.java
+5. java -cp . org.nusiss.App

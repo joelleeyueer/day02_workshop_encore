@@ -10,7 +10,7 @@
       </profile>
     </annotationProcessing>
     <bytecodeTargetLevel>
-      <module name="day02_workshop_encore" target="1.5" />
+      <module name="day02_workshop_encore" target="19" />
     </bytecodeTargetLevel>
   </component>
 </project>

@@ -19,6 +19,11 @@ public class BankAccount {
         this.accountEndDate = accountEndDate;
     }
 
+    public BankAccount(String accountNo, double balance) {
+        this.accountNo = accountNo;
+        this.balance = balance;
+    }
+
     public String getAccountNo() {
         return accountNo;
     }
@@ -65,5 +70,50 @@ public class BankAccount {
 
     public void setAccountEndDate(Date accountEndDate) {
         this.accountEndDate = accountEndDate;
+    }
+
+    public void showAccount(){
+        System.out.println("Account No: " + accountNo);
+        System.out.println("Full name: " + fullName);
+        System.out.println("Balance: " + balance);
+    }
+
+    public void deposit(double amountToDeposit) throws IllegalAccessException {
+        if (!isActive){
+            throw new IllegalArgumentException("You cannot make a deposit to an inactive account.");
+        }
+
+        if (amountToDeposit < 0){
+            throw new IllegalArgumentException("Amount to deposit cannot be less than 0");
+        } else {
+
+            balance+= amountToDeposit;
+        }
+    }
+
+    public void withdraw(double amountToWithdraw) throws IllegalAccessException {
+        if (!isActive){
+            throw new IllegalArgumentException("You cannot make a deposit to an inactive account.");
+        }
+
+        if (amountToWithdraw < 0){
+            throw new IllegalArgumentException("Amount to withdraw cannot be less than 0");
+        } else if (balance<amountToWithdraw) {
+            throw new IllegalArgumentException("Withdraw failed. Balance too low. Current balance: "+balance);
+        } else {
+            balance-= amountToWithdraw;
+        }
+    }
+
+    @Override
+    public String toString() {
+        return "BankAccount{" +
+                "accountNo='" + accountNo + '\'' +
+                ", fullName='" + fullName + '\'' +
+                ", balance=" + balance +
+                ", isActive=" + isActive +
+                ", accountStartDate=" + accountStartDate +
+                ", accountEndDate=" + accountEndDate +
+                '}';
     }
 }
